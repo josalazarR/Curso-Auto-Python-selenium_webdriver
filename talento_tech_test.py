@@ -112,25 +112,29 @@
 
 
 # Modularizar o funcion anidada
-def sumar( a, b ):
+def sumar():
     a = float(input("Ingresa el primer número: "))
     b = float(input("Ingresa el segundo número: "))
     return a + b
 
-def resta( a, b ):
+def resta():
     a = float(input("Ingresa el primer número: "))
     b = float(input("Ingresa el segundo número: "))
     return a - b
 
-def multiplicacion( a, b ):
+def multiplicacion():
     a = float(input("Ingresa el primer número: "))
     b = float(input("Ingresa el segundo número: "))
     return a * b
 
-def division( a, b ):
+def division():
     a = float(input("Ingresa el primer número: "))
     b = float(input("Ingresa el segundo número: "))
-    return a / b
+    try:
+        return a / b
+    except ZeroDivisionError:
+        print("Error: No se puede dividir entre 0.")
+        return None
 
 def calculadora_simple():
     operacion = input("¿Qué operación deseas realizar? (sumar, resta, multiplicacion, division): ").strip().lower()
@@ -142,11 +146,12 @@ def calculadora_simple():
         resultado = multiplicacion()
     elif operacion == "division":
         resultado = division()
-    else:
+    else: 
         resultado = "Operación no válida"
-    print(f"El resultado es: {resultado}")
+    print(f"El resultado es: {resultado}")      
+        
+calculadora_simple()
 
-#print(calculadora_simple("sumar", 10, 5))
 
 
 # try: #manejo de errores
